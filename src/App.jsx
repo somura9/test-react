@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import ColorfulMessage from "./components/ColorfulMessage";
 
 const App = () => {
-  const onClickButton = () => alert();
+  const onClickCountUp = () => {
+    setNum(num + 1);
+  };
+  // ステートを変更させる変数、関数、初期値を定義
+  const [num, setNum] = useState(0);
 
   return (
     <>
@@ -13,7 +17,8 @@ const App = () => {
       {/* propsを変えるだけで表示を変えられる　＝　使いまわせる */}
       <ColorfulMessage color="pink">元気です</ColorfulMessage>
 
-      <button onClick={onClickButton}>ボタン</button>
+      <button onClick={onClickCountUp}>カウントアップ</button>
+      <p>{num}</p>
     </>
   );
 };
